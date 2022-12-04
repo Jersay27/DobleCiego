@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ba2ab7da4c704066ab43831632c9bed4" Name="Diagram1">
+        <EntityTypeShape EntityType="DobleCiegoModel.T_Comentarios" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DobleCiegoModel.T_Publicaciones" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DobleCiegoModel.T_Titulos" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DobleCiegoModel.T_Tracking" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DobleCiegoModel.T_Usuarios" Width="1.5" PointX="2.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

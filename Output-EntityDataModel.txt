@@ -1,0 +1,9 @@
+﻿Generated model file: modelDobleCiego.edmx.
+Loading metadata from the database took 00:00:00.4137026.
+Generating the model took 00:00:00.8768268.
+Generated model file: modelDobleCiego.edmx.
+Loading metadata from the database took 00:00:00.3474821.
+Generating the model took 00:00:00.7833716.
+Generated model file: modelDobleCiego.edmx.
+Loading metadata from the database took 00:00:00.3430101.
+Generating the model took 00:00:00.7260621.

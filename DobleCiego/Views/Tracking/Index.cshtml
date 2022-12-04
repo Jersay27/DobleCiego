@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DobleCiego.Models.modelTracking>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Seguimiento de Convocatorias</h2>
+<br />
+@*@Html.ActionLink("Crear Titulo", "crearTitulo", "", new { @class = "btn btn-primary btn-cons" })*@
+
+<div>
+    <br />
+    <table id="MiTabla" class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Convocatoria</th>
+                <th>Revisor</th>
+                <th>Revisor Fecha</th>
+                <th>Documento Revisor</th>
+                <th>Escritor</th>
+                <th>Escritor Fecha</th>
+                <th>Documento Escritor</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.titulo </td>
+                @if (!String.IsNullOrWhiteSpace(item.revisorName))
+                {
+                    <td>@item.revisorName</td>
+                }
+                else
+                {
+                    <td>Sin Revisor</td>
+                }
+                <td>@(item.revisorDate)</td>
+
+                @if (item.docRefRevisor != null)
+                {
+                    <td>@Html.ActionLink("Descargar", "downloadRevisor", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })</td>
+                }
+                else
+                {
+                    <td> Sin Revisor</td>
+                }
+                @if (!String.IsNullOrWhiteSpace(item.escritorName))
+                {
+                    <td>@item.escritorName</td>
+                }
+                else
+                {
+                    <td>Sin Escritor</td>
+                }
+                <td>@item.escritorDate</td>
+                @if (!String.IsNullOrWhiteSpace(item.docRefEscritor))
+                {
+                    <td>  @Html.ActionLink("Descargar", "downloadEscritor", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+    var val = '@Html.Raw((string)TempData["Message"])';
+    if (val == "Se aggrego un nuevo titulo")
+    {
+        toastr.success(val);
+    }
+    else if (val == "Se modifico el titulo") {
+        toastr.success(val);
+    }
+    else if (val == "Se elimino el titulo") {
+        toastr.success(val);
+    }
+    else if (val == "Error al guardar archivos") {
+        toastr.warning(val);
+    }
+    });
+
+
+</script>

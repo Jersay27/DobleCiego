@@ -1,0 +1,40 @@
+﻿    @model IEnumerable<DobleCiego.Models.T_Publicaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Publicaciones</h2>
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 d-flex align-items-stretch">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="@item.imgRef" class="card-img-top" alt="" height=200 width=100>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bolder">@item.Titulo</h5>
+                            <p class="card-text">@item.Descripcion</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted ">
+                        @item.CreationDate.ToString("dd-MM-yyyy")
+                        &nbsp;&nbsp;
+                        @Html.ActionLink(" Descargar", "download", new { id = item.idPublicacion }, new { @class = "btn btn-success btn-lg fas fa-download" })
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        console.log('Test')
+    });
+</script>

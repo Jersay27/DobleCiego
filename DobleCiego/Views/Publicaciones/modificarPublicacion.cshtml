@@ -1,0 +1,98 @@
+﻿@model DobleCiego.Models.T_Publicaciones
+@{
+}
+<div class="position-absolute top-1 end-0">
+    <button class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Publicaciones")'"><i class="fa fa-arrow-left" aria-hidden="true"> </i> Bo Back</button>
+
+</div>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Modificar Publicacion</h3>
+                        @using (Html.BeginForm("updatePublish", "Publicaciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" value="@Model.idPublicacion" id="id" name="id" hidden />
+
+                                        <div class="form-outline">
+                                            <input type="text" id="firstName" class="form-control form-control-lg" name="firstName" value="@Model.Titulo" />
+                                            <label class="form-label" for="firstName">Nombre(s)</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                        <div class="form-outline datepicker w-100">
+                                            <input accept="image/png,image/jpeg" type="file" class="form-control form-control" id="img" name="img" value="@Model.imgRef" />
+                                            <label for="birthdayDate" class="form-label">Imagen</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline datepicker w-100">
+                                            <input accept="application/msword,text/plain, application/pdf," type="file" class="form-control form-control" id="doc" name="doc" value="@Model.docRef" />
+                                            <label for="birthdayDate" class="form-label">Documento de publicacion</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-4 pb-2">
+                                        <textarea class="form-control" id="textArea" rows="4" name="textArea">@Model.Descripcion</textarea>
+                                        <label for="textArea" class="form-label">Descripcion de la publicacion</label>
+
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-2">
+                                    <input class="btn btn-primary btn-lg" type="submit" value="Modificar" />
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+    var val = '@Html.Raw((string)TempData["Message"])';
+    if (val != "")
+    {
+        toastr.warning(val);
+    }
+    });
+
+
+</script>
+<style>
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #009df0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to bottom right, rgba(0, 157, 240, 1), rgba(245, 87, 108, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to bottom right, rgba(191, 215, 237, 1), rgba(96, 163, 217, 1))
+    }
+
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+</style>

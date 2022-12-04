@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DobleCiego.Models.modelTracking>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Historial de Documentos</h2>
+
+<div>
+    <br />
+    <table id="MiTabla" class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Convocatoria</th>
+                <th>Revisor Date</th>
+                <th>Documento Revisor</th>
+                <th>Escritor Date</th>
+                <th>Documento Escritor</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.titulo </td>
+                    <td>@(item.revisorDate)</td>
+
+                    @if (item.docRefRevisor != null)
+                    {
+                        <td>@Html.ActionLink("Descargar", "downloadRevisor", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })</td>
+                    }
+                    else
+                    {
+                        <td> Sin Revisor</td>
+                    }
+                    <td>@item.escritorDate</td>
+                    @if (!String.IsNullOrWhiteSpace(item.docRefEscritor))
+                    {
+                        <td>  @Html.ActionLink("Descargar", "downloadEscritor", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

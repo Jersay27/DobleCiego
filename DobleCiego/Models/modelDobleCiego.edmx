@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DobleCiegoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Comentarios">
+          <Key>
+            <PropertyRef Name="idComentario" />
+          </Key>
+          <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTitulo" Type="int" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Publicaciones">
+          <Key>
+            <PropertyRef Name="idPublicacion" />
+          </Key>
+          <Property Name="idPublicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario_Creador" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="imgRef" Type="varchar(max)" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="docRef" Type="varchar(max)" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Titulos">
+          <Key>
+            <PropertyRef Name="IdTitulo" />
+          </Key>
+          <Property Name="IdTitulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="Propuesta" Type="varchar(max)" />
+          <Property Name="ImagenRef" Type="varchar(max)" />
+          <Property Name="DocRef" Type="varchar(max)" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Tracking">
+          <Key>
+            <PropertyRef Name="IdTrack" />
+          </Key>
+          <Property Name="IdTrack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTitulo" Type="int" Nullable="false" />
+          <Property Name="idUsuario_Revisor" Type="int" />
+          <Property Name="idUsuario_Escritor" Type="int" />
+          <Property Name="docRef_Revisor" Type="varchar(max)" />
+          <Property Name="docRef_Escritor" Type="varchar(max)" />
+          <Property Name="revisorCreateDate" Type="date" />
+          <Property Name="escritorCreateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="T_Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Sexo" Type="varchar" MaxLength="50" />
+          <Property Name="FechaNac" Type="date" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DobleCiegoModelStoreContainer">
+          <EntitySet Name="T_Comentarios" EntityType="Self.T_Comentarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Publicaciones" EntityType="Self.T_Publicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Titulos" EntityType="Self.T_Titulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Tracking" EntityType="Self.T_Tracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Usuarios" EntityType="Self.T_Usuarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DobleCiegoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DobleCiegoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Comentarios" EntityType="DobleCiegoModel.T_Comentarios" />
+          <EntitySet Name="T_Publicaciones" EntityType="DobleCiegoModel.T_Publicaciones" />
+          <EntitySet Name="T_Titulos" EntityType="DobleCiegoModel.T_Titulos" />
+          <EntitySet Name="T_Tracking" EntityType="DobleCiegoModel.T_Tracking" />
+          <EntitySet Name="T_Usuarios" EntityType="DobleCiegoModel.T_Usuarios" />
+        </EntityContainer>
+        <EntityType Name="T_Comentarios">
+          <Key>
+            <PropertyRef Name="idComentario" />
+          </Key>
+          <Property Name="idComentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTitulo" Type="Int32" Nullable="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="T_Publicaciones">
+          <Key>
+            <PropertyRef Name="idPublicacion" />
+          </Key>
+          <Property Name="idPublicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario_Creador" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imgRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="docRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="T_Titulos">
+          <Key>
+            <PropertyRef Name="IdTitulo" />
+          </Key>
+          <Property Name="IdTitulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Propuesta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImagenRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DocRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Tracking">
+          <Key>
+            <PropertyRef Name="IdTrack" />
+          </Key>
+          <Property Name="IdTrack" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTitulo" Type="Int32" Nullable="false" />
+          <Property Name="idUsuario_Revisor" Type="Int32" />
+          <Property Name="idUsuario_Escritor" Type="Int32" />
+          <Property Name="docRef_Revisor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="docRef_Escritor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="revisorCreateDate" Type="DateTime" Precision="0" />
+          <Property Name="escritorCreateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="T_Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DobleCiegoModelStoreContainer" CdmEntityContainer="DobleCiegoEntities">
+          <EntitySetMapping Name="T_Comentarios">
+            <EntityTypeMapping TypeName="DobleCiegoModel.T_Comentarios">
+              <MappingFragment StoreEntitySet="T_Comentarios">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idTitulo" ColumnName="idTitulo" />
+                <ScalarProperty Name="idComentario" ColumnName="idComentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Publicaciones">
+            <EntityTypeMapping TypeName="DobleCiegoModel.T_Publicaciones">
+              <MappingFragment StoreEntitySet="T_Publicaciones">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="docRef" ColumnName="docRef" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="imgRef" ColumnName="imgRef" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="idUsuario_Creador" ColumnName="idUsuario_Creador" />
+                <ScalarProperty Name="idPublicacion" ColumnName="idPublicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Titulos">
+            <EntityTypeMapping TypeName="DobleCiegoModel.T_Titulos">
+              <MappingFragment StoreEntitySet="T_Titulos">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="DocRef" ColumnName="DocRef" />
+                <ScalarProperty Name="ImagenRef" ColumnName="ImagenRef" />
+                <ScalarProperty Name="Propuesta" ColumnName="Propuesta" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Tracking">
+            <EntityTypeMapping TypeName="DobleCiegoModel.T_Tracking">
+              <MappingFragment StoreEntitySet="T_Tracking">
+                <ScalarProperty Name="escritorCreateDate" ColumnName="escritorCreateDate" />
+                <ScalarProperty Name="revisorCreateDate" ColumnName="revisorCreateDate" />
+                <ScalarProperty Name="docRef_Escritor" ColumnName="docRef_Escritor" />
+                <ScalarProperty Name="docRef_Revisor" ColumnName="docRef_Revisor" />
+                <ScalarProperty Name="idUsuario_Escritor" ColumnName="idUsuario_Escritor" />
+                <ScalarProperty Name="idUsuario_Revisor" ColumnName="idUsuario_Revisor" />
+                <ScalarProperty Name="idTitulo" ColumnName="idTitulo" />
+                <ScalarProperty Name="IdTrack" ColumnName="IdTrack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Usuarios">
+            <EntityTypeMapping TypeName="DobleCiegoModel.T_Usuarios">
+              <MappingFragment StoreEntitySet="T_Usuarios">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DobleCiego.Models.modelTracking>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Conovcatorias sin Revisar</h2>
+<div>
+    <br />
+
+    <table id="MiTabla" class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Imagen</th>
+                <th>Titulo</th>
+                <th>Creacion</th>
+                <th>Archivo</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> <img src="@item.imgRef" alt="" height=100 width=200 /> </td>
+                    <td>@item.titulo</td>
+                    <td>@item.escritorDate</td>
+                    <td>  @Html.ActionLink("Descargar", "downloadEscritor", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })</td>
+                    <td>
+                        @Html.ActionLink("Revisar", "revisar", new { id = item.idTracking }, new { @class = "btn btn-primary btn-cons" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
